@@ -1,7 +1,5 @@
 const HIGHSCORES = "highScoreList";
 const HIGHSCORESARRAY = [];
-
-var listOfHighscores = document.getElementById("HighscoreListDiv");
 var stringArray;
 
 function addNewHighScore (player, points, turns) {
@@ -26,6 +24,7 @@ function sortHighScores (array) {
 
 // to use: displayHighScores(HIGHSCORES);
 function displayHighScores (key) {
+    var listOfHighscores = document.getElementById("HighscoreListDiv");
     stringArray = localStorage.getItem(key);
     let arrayOfStrings = JSON.parse(stringArray);
 
@@ -35,6 +34,7 @@ function displayHighScores (key) {
     if (stringArray === null) {
         listOfHighscores.innerHTML = "";
     } else {
+        //display highscore list
         for (let i = 0; i < arrayOfStrings.length; i += 3) {
             const group = document.createElement("div");
 
@@ -49,4 +49,12 @@ function displayHighScores (key) {
     }
 }
 
+// clears local storage
+function clearHighScores () {
+    localStorage.clear();
+    displayHighScores(HIGHSCORES);
+}
+
 addNewHighScore("philip", 1, 5);
+addNewHighScore("Maja", 9, 10);
+
