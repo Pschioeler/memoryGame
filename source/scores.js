@@ -18,6 +18,9 @@ function addNewHighScore (player, points, turns) {
 
 } 
 
+// mangler at blive implementeret
+// sort skal sortere arrayt ud fra flest point, og hvis lige antal point, færrest ture
+// den skal også fjerne uoverflødige scores (feks. hvis der er mere end 10 scores)
 function sortHighScores (array) {
 
 }
