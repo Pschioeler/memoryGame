@@ -27,3 +27,25 @@ function randomSort (array) {
 
 randomSort(gameTiles);
 console.log(gameTiles);
+
+
+// Script for timeren
+const timerh3 = document.getElementById('timer');
+let totalSeconds = 0;
+
+function printTimer() {
+  totalSeconds++;
+
+  const minutesValue = Math.floor(totalSeconds / 60);
+  const secondsValue = totalSeconds % 60;
+
+  const preMinutes = minutesValue.toString().padStart(2, '0');
+  const preSeconds = secondsValue.toString().padStart(2, '0');
+  // padStart bruges for at formatterer tallene til at være '01' i stedet for '1'
+
+  timerh3.textContent = preMinutes + ':' + preSeconds; 
+  document.title = preMinutes + ':' + preSeconds + " - Arkaden Vendespil";
+}
+
+function startTimer() {setInterval(printTimer, 1000);}
+startTimer();
