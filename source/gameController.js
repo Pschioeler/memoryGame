@@ -1,7 +1,12 @@
+let correct = new Audio("/source/correct.mp3");
+let incorrect = new Audio("/source/incorrect.mp3");
+let confetti = new Audio("/source/confetti.mp3");
+
 let flippedTiles = [];
 let isplayerOneTurn = true;
 let playerOnePoints = 0;
 let playerTwoPoints = 0;
+
 const p1 = document.getElementById("p1");
 const p2 = document.getElementById("p2"); 
 
@@ -33,12 +38,14 @@ function doTilesMatch(tile1, tile2) {
     tile2.disabled = true;
     console.log("Its a match");
     flippedTiles = [];
+    correct.play();
 
     pointController();
     turnController();
     
   } else {
     //Delay for user friendliness
+    incorrect.play();
     setTimeout(() => {   
         tile1.disabled = false;
         tile2.disabled = false;
