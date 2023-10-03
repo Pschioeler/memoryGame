@@ -1,0 +1,12 @@
+gameboard {
+    display: flex;
+}
+button {
+    width: 75px;
+    height: 75px;
+    margin: 2px;
+}
+button:hover {
+    cursor: pointer;
+    outline: 2px solid lime;
+}
