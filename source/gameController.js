@@ -1,33 +1,25 @@
-/*  compareCards
-    if the values are equal
-        disable the cards from being able to get clicked
-        pointCounter
-        other person's turn
-    else
-        flip cards back
-        other person's turn
-*/
-
 let flippedTiles = [];
-
 
 // Function to handle tile clicks
 function handleTileClick(e) {
+
     let tile = e.target;
-  if (flippedTiles.length < 2) {
-    //tile.classList.add('flipped'); can be used for styling later
-    flippedTiles.push(tile.value);
+    tile.innerHTML = tile.value;
+    tile.disabled = true;
+    tile.classList.add("flipped");
+    
+    if (flippedTiles.length < 2) {
+        flippedTiles.push(tile);
+    }
 
     if (flippedTiles.length === 2) {
-      // Two tiles have been flipped; check if they match
       doTilesMatch(flippedTiles[0], flippedTiles[1]);
     }
-  }
-}
 
+  }
 
 function doTilesMatch(tile1, tile2) {
-  if (tile1 == tile2) {
+  if (tile1.value == tile2.value) {
     tile1.disabled = true;
     tile2.disabled = true;
     console.log("Its a match");
@@ -35,20 +27,21 @@ function doTilesMatch(tile1, tile2) {
     //increase player points;
     //make it the other persons turn;
   } else {
-    // flippedTiles.forEach((tile) => {
-    //     tile.classList.remove('flipped');
-    //   });
-    console.log("womp womp");
-    flippedTiles = [];
+    setTimeout(() => {   
+        tile1.disabled = false;
+        tile2.disabled = false;
+        tile1.innerHTML = "";
+        tile2.innerHTML = "";
+
+        flippedTiles.forEach((tile) => {
+            tile.classList.remove('flipped');
+        });
+        console.log("womp womp");
+        flippedTiles = [];
+      }, 1000);
+
   }
 };
-
-
-/*  pointCounter
-    fetch elements which's innerHTML i wanna change
-    player.points++;
-    element.innerHTML = `${this.player}'s points: ${this.player.points}`
- */
 
 /*  Turn controller
     playerOneTurn = true; (declare this outside of function)
@@ -56,4 +49,12 @@ function doTilesMatch(tile1, tile2) {
     else do the indicator but for player 2's circle/innerhtml
 
 */
+
+/*  pointCounter
+    fetch elements which's innerHTML i wanna change
+    player.points++;
+    element.innerHTML = `${this.player}'s points: ${this.player.points}`
+ */
+
+
 
