@@ -43,3 +43,6 @@ button:hover {
 .flipped:hover {
     outline: none !important;
 }
+p {
+    color: var(--text-color);
+}
