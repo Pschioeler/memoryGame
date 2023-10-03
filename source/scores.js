@@ -18,15 +18,9 @@ function addNewHighScore (player, points, turns) {
 
 } 
 
-
-
-// not implemented yet
 function sortHighScores (array) {
 
 }
-
-
-
 
 // to use: displayHighScores(HIGHSCORES);
 function displayHighScores (key) {
