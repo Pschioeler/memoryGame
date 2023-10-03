@@ -39,9 +39,10 @@ function createBoard() {
       for (let j = 0; j < 10; j++) {
           let index = i * 10 + j;
           let value = gameTiles[index]; // Get the value from gameTiles
-          const button = document.createElement('button');
+          let button = document.createElement('button');
           button.className = 'column';
           button.value = value; // Set the value attribute
+          button.addEventListener('click', handleTileClick);
           row.appendChild(button);
       }
 
