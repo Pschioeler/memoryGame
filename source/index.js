@@ -29,6 +29,28 @@ randomSort(gameTiles);
 console.log(gameTiles);
 
 
+function createBoard() {
+  const board = document.getElementById('gameboard');
+
+  for (let i = 0; i < 10; i++) {
+      var row = document.createElement('div');
+      row.className = 'row';
+
+      for (let j = 0; j < 10; j++) {
+          let index = i * 10 + j;
+          let value = gameTiles[index]; // Get the value from gameTiles
+          const button = document.createElement('button');
+          button.className = 'column';
+          button.value = value; // Set the value attribute
+          row.appendChild(button);
+      }
+
+      board.appendChild(row);
+  }
+}
+
+createBoard();
+
 // Script for timeren
 const timerh3 = document.getElementById('timer');
 let totalSeconds = 0;
