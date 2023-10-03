@@ -2,17 +2,6 @@ const HIGHSCORES = "highScoreList";
 const myArray = ["player1", 100, 10];
 var stringArray;
 
-/*
-convertToArray("player1", 100, 10);
-function convertToArray (player, points, turns) {
-    HIGHSCORES.push(player, points, turns);
-
-    string = JSON.stringify(HIGHSCORES);
-    
-    localStorage.setItem("HIGHSCORES", string)}
-*/
-
-
 function saveHighScore (key, array) {
     stringArray = JSON.stringify(array);
     localStorage.setItem(key, stringArray);
@@ -42,11 +31,9 @@ function clearHighScore () {
 
 saveHighScore(HIGHSCORES, myArray);
 
-const retrievedArray = getArrayFromLocalStorage(HIGHSCORES);
+const retrievedArray = displayHighScore(HIGHSCORES);
 if (retrievedArray !== null) {
   console.log('Retrieved Array:', retrievedArray);
 } else {
   console.log('Array not found in localStorage.');
 }
-
-console.log(retrievedArray);
