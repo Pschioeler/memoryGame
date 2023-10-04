@@ -11,6 +11,7 @@ background.loop = true;
 
 
 let flippedTiles = [];
+let turnAmount = 1;
 let isplayerOneTurn = true;
 let playerOnePoints = 0;
 let playerTwoPoints = 0;
@@ -83,13 +84,14 @@ function doTilesMatch(tile1, tile2) {
 };
 
 //Changes whose turn it is
-function turnController() {
-
-    
+function turnController() {  
     turn.innerHTML = "";
     isplayerOneTurn = !isplayerOneTurn;
     
-    if (isplayerOneTurn === true) turn.innerHTML = "It's Player One's turn!"
+    if (isplayerOneTurn === true) { 
+      turn.innerHTML = "It's Player One's turn!"
+      turnAmount++
+    }
     else turn.innerHTML = "It's Player Two's turn!";
 }
 
@@ -132,14 +134,22 @@ function printTimer() {
   
     const preMinutes = minutesValue.toString().padStart(2, '0');
     const preSeconds = secondsValue.toString().padStart(2, '0');
-    // padStart to formate the numbers as '01' instead of '1'
+    // padStart to format the numbers as '01' instead of '1'
   
     timerh3.textContent = preMinutes + ':' + preSeconds; 
     document.title = preMinutes + ':' + preSeconds + " - Arkaden Vendespil";
   }
 }
-function startTimer() {setInterval(printTimer, 1000);};
-function resetTimer() {totalSeconds = 0};
+let timer;
+function startTimer() {timer = setInterval(printTimer, 1000); isPaused = false};
+function resetTimer() {
+  isPaused = false;
+  totalSeconds = 0;
+  clearInterval(timer); // Clear timer and create it again to ensure the first second tick is consistent
+  timer = setInterval(printTimer, 1000);
+  timerh3.textContent = '00:00';
+  document.title = 'Arkaden';
+};
 function pauseTimer() {
   if(!isPaused){
     isPaused = true
@@ -168,37 +178,37 @@ function startGame() {
   restartBtn.style.display = 'block';
 }
 
-
-/*
-  Gør brættet interaktivt
-    forEach .column button.disabled = false;
-  startTimer()
-  background.play()
-*/
-
 // Restart game
-
 function restartGame(){
   createBoard();
   enableBoard();
   resetTimer();
-  timerh3.textContent = '00:00';
-  document.title = 'Arkaden';
   resetPoints();
   flippedTiles = []; // Clear array in case user flipped 1 tile before resetting
+  restartBtn.textContent = "Restart Game"
 }
+
+// Victory screen/game concluded
+function gameEnded() {
+  if (playerOnePoints > playerTwoPoints) {
+    turn.textContent = "Player One wins!"
+    addNewHighScore("Player One", playerOnePoints, turnAmount);
+  } else if (playerOnePoints == playerTwoPoints) {
+    turn.textContent = "It's a tie!"
+    addNewHighScore("Player One", playerOnePoints, turnAmount);
+    addNewHighScore("Player Two", playerTwoPoints, turnAmount);
+  } else {
+    turn.textContent = "Player Two wins!"
+    addNewHighScore("Player Two", playerTwoPoints, turnAmount);
+  }
+  pauseTimer();
+  restartBtn.textContent = "New Game"
+}
+
 /*
-  Slet nuværrende bræt
-  createBoard()
-  resetTimer()
-  Clear flipped array liste
-  playerOnePoints = 0;
-  playerTwoPoints = 0;
-*/
-
-/* Victory screen
-
+  Print victor
   pauseTimer()
-  addNewHighScore()
-
+  if highscore > highscoreList
+    addNewHighScore()
+  Change restart button to new game
 */
