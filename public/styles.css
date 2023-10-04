@@ -25,6 +25,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 2em;
 }
 button {
     z-index: 0;
@@ -87,6 +88,9 @@ main {
     text-align: center;
     display: flex;
     max-width: min-content;
+    outline: 2px solid var(--secondary-bg-color);
+    border-radius: 5px;
+    padding: 5px;
 }
 #players {
     display: flex;
@@ -117,31 +121,66 @@ main {
     padding: 0 2rem 0 2rem;
   }
   #rulesList {
-    margin-top: 1rem;
+    margin: 1rem 1rem;
     list-style-type: square;
   }
+  #rulesList li {
+    align-items: center;
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
   #rulesListDiv {
     margin-top: 3rem;
+    border-radius: 5px;
+    height: 570px;
+    outline: 2px solid var(--secondary-bg-color);
+    box-shadow: 0 0 .2rem var(--secondary-bg-color),
+    0 0 .2rem var(--secondary-bg-color),
+    0 0 2rem var(--primary-color),
+    inset 0 0 1.3rem var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
   }
+
   #contentWrapper {
     margin-top: 1rem;
   }
 
+h3 {
+    font-size: 28px;
+    border-bottom: 2px solid var(--secondary-bg-color);
+}
+
 #highScoreDiv {
  border-radius: 5px;
  height: 690px;
- outline: 2px solid white;
- box-shadow: 0 0 .2rem #fff,
- 0 0 .2rem #fff,
- 0 0 2rem #ec1800,
- inset 0 0 1.3rem #ec1800;
+ outline: 2px solid var(--secondary-bg-color);
+ box-shadow: 0 0 .2rem var(--secondary-bg-color),
+ 0 0 .2rem var(--secondary-bg-color),
+ 0 0 2rem var(--primary-color),
+ inset 0 0 1.3rem var(--primary-color);
  display: flex;
  flex-direction: column;
  align-items: center;
- padding: 2em    0;
+ padding: 2em 1em;
 }
 
 #highScoreDiv div {
     margin: 20px 0;
     font-size: 20px;
+}
+
+#players p {
+    font-size: 20px;
+    font-weight: bold;
+}
+#p1{
+    text-shadow: var(--primary-color) 1px 0 10px;
+}
+#p2{
+    text-shadow: var(--tertiary-color) 1px 0 10px;
 }

@@ -47,7 +47,7 @@ function displayHighScores() {
           const scoreDiv = document.createElement('div');
           scoreDiv.className = 'high-score';
           scoreDiv.innerHTML = `
-            <strong>${index + 1}. ${score.player} - ${score.points} points, ${score.turns} turns </strong>`;
+            <strong>${index + 1}. ${score.player} - ${score.points} points | ${score.turns} turns </strong>`;
           HighScoreDiv.appendChild(scoreDiv);
         });
       } else {
@@ -62,7 +62,11 @@ function clearHighScores () {
     displayHighScores();
 }
   
- // clearHighScores();
+ //clearHighScores();
 displayHighScores();
+
+addNewHighScore("player 1", 2000, 25);
+addNewHighScore("player 1", 1500, 25);
+addNewHighScore("player 2", 1500, 25);
 
   
