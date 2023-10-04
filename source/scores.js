@@ -1,7 +1,8 @@
 const HIGHSCORES = "highScores";
 var HighScoreDiv = document.getElementById("highScoreListDiv");
 
-// Function to add a new highscores
+// Function to add a new highscore
+// EXAMPLE: addNewHighScore("philip", 1500, 5);
 function addNewHighScore(player, points, turns) {
     // Retrieve the existing high scores array from local storage, if any
     let highScores = JSON.parse(localStorage.getItem(HIGHSCORES)) || [];
@@ -13,7 +14,7 @@ function addNewHighScore(player, points, turns) {
         turns: turns
     };
   
-    // Push the new high score object into the array
+    // Push the new highscore object into the array
     highScores.push(newHighScore);
   
     // Save the updated high scores array as a string in local storage
@@ -25,12 +26,17 @@ function addNewHighScore(player, points, turns) {
 
 // Function to display highscores
 function displayHighScores() {
-      // Retrieve the high scores array from local storage
+      // Retrieve the highscores array from local storage
       let highScores = JSON.parse(localStorage.getItem('highScores'));
   
       if (highScores && highScores.length > 0) {
-        // Sort the high scores by points (descending order)
+        // Sort the highscores by points
         highScores.sort((a, b) => b.points - a.points);
+
+        if (highScores.length > 10) {
+          highScores.pop();
+          localStorage.setItem(HIGHSCORES, JSON.stringify(highScores)); 
+        }
 
         // Clear any previous content in the element
         HighScoreDiv.innerHTML = "";
@@ -44,7 +50,7 @@ function displayHighScores() {
           HighScoreDiv.appendChild(scoreDiv);
         });
       } else {
-        // If there are no high scores, display a message
+        // If there are no high scores
         HighScoreDiv.textContent = 'No high scores available.';
       }
   }
@@ -55,7 +61,7 @@ function clearHighScores () {
     displayHighScores();
 }
   
-//clearHighScores();
-// Example usage: Display high scores in a div with the ID "highScoresContainer"
-// addNewHighScore("philip", 1500, 5);
-  displayHighScores();
+ // clearHighScores();
+displayHighScores();
+
+  
