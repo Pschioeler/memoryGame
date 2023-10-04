@@ -32,11 +32,21 @@ button {
     height: 65px;
     margin: 2px;
     color: var(--highlight-color);
+    font-weight: 600;
 }
-
-.column:hover {
-    z-index: 100;
+button:hover {
     cursor: pointer;
+}
+.column {
+    font-size: 1.5rem;
+}
+.column:disabled{
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+.column:hover {
+    z-index: 100; 
     border-radius: 5px;
     border: var(--hover) 2px solid;
     box-shadow: 

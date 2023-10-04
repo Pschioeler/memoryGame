@@ -220,3 +220,5 @@ function gameEnded() {
     addNewHighScore()
   Change restart button to new game
 */
+
+
