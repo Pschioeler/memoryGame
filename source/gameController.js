@@ -4,6 +4,7 @@ let incorrect = new Audio("/source/incorrect.mp3");
 let confetti = new Audio("/source/confetti.mp3");
 let background = new Audio("/source/background.mp3");
 let turn =  document.getElementById("turn");
+const buttons = document.querySelectorAll(".column");
 correct.volume = 0.5;
 incorrect.volume = 0.5;
 background.volume = 0.3;
@@ -51,7 +52,7 @@ function doTilesMatch(tile1, tile2) {
 
     pointController();
   } else {
-    const buttons = document.querySelectorAll(".column");
+    
     //Delay for user friendliness
     incorrect.play();
 
@@ -84,15 +85,23 @@ function doTilesMatch(tile1, tile2) {
 };
 
 //Changes whose turn it is
-function turnController() {  
+function turnController() {
+    var root = document.querySelector(':root');
     turn.innerHTML = "";
     isplayerOneTurn = !isplayerOneTurn;
     
-    if (isplayerOneTurn === true) { 
+    if (isplayerOneTurn === true) {
+      root.style.setProperty('--hover', '#ec1800');
+      { 
       turn.innerHTML = "It's Player One's turn!"
       turnAmount++
     }
-    else turn.innerHTML = "It's Player Two's turn!";
+    }
+
+    else {
+      root.style.setProperty('--hover', '#0629f1');
+      turn.innerHTML = "It's Player Two's turn!";
+    }
 }
 
 //Increases play points by one

@@ -8,13 +8,14 @@
 
 :root,
     :root.default {
-        --primary-color: #e36a0e;
-        --secondary-color: #F68B00;
-        --tertiary-color: dodgerblue;
+        --primary-color: #ec1800;
+        --secondary-color: #f66200;
+        --tertiary-color: #0629f1;
         --bg-color: #2d333d;
         --secondary-bg-color: #d5dfe3;
         --highlight-color: black;
         --text-color: aliceblue;
+        --hover: #ec1800;
 }
 
 
@@ -32,14 +33,21 @@ button {
     color: var(--highlight-color);
 }
 
-
-button:hover {
-    width: 65px;
-    height: 65px;
-    margin: 2px;
+.column:hover {
+    z-index: 100;
     cursor: pointer;
     border-radius: 5px;
+    border: var(--hover) 2px solid;
+    box-shadow: 
+    0 0 7px var(--hover),
+    0 0 10px var(--hover),
+    0 0 42px var(--hover),
+    0 0 82px var(--hover),
+    0 0 92px var(--hover),
+    0 0 102px var(--hover),
+    0 0 151px var(--hover);
 }
+
 .flipped {
     cursor: default;
     background-color: var(--highlight-color);
@@ -52,9 +60,7 @@ p {
 .cursorHidden {
     pointer-events: none;
 }
-i {
-    color: var(--text-color);
-}
+
 header {
     display: flex;
     justify-content: end;
@@ -76,9 +82,39 @@ main {
 }
 #players {
     display: flex;
-    justify-content: space-between;
+    gap: 15rem;
 }
 #info {
     text-align: center;
 }
-
+.neon {
+    color: #fff;
+    text-shadow:
+        0 0 7px #eb5b5b,
+        0 0 10px #d93030,
+        
+        0 0 42px var(--primary-color),
+        0 0 82px var(--primary-color),
+        0 0 92px var(--primary-color),
+        0 0 102px var(--primary-color),
+        0 0 151px var(--primary-color);
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+  #start, #restart {
+    width: 100%;
+  }
+  aside {
+    padding: 0 2rem 0 2rem;
+  }
+  #rulesList {
+    margin-top: 1rem;
+    list-style-type: square;
+  }
+  #rulesListDiv {
+    margin-top: 3rem;
+  }
+  #contentWrapper {
+    margin-top: 1rem;
+  }
