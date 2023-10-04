@@ -33,6 +33,7 @@ function displayHighScores() {
         // Sort the highscores by points
         highScores.sort((a, b) => b.points - a.points);
 
+        // removes excess highscores
         if (highScores.length > 10) {
           highScores.pop();
           localStorage.setItem(HIGHSCORES, JSON.stringify(highScores)); 

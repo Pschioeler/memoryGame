@@ -127,7 +127,7 @@ main {
     margin-top: 1rem;
   }
 
-#highScoreListDiv {
+#highScoreDiv {
  border-radius: 5px;
  height: 690px;
  outline: 2px solid white;
@@ -141,7 +141,7 @@ main {
  padding: 2em    0;
 }
 
-#highScoreListDiv div {
-    margin: 10px 0;
+#highScoreDiv div {
+    margin: 20px 0;
     font-size: 20px;
 }
