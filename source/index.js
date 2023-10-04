@@ -25,12 +25,13 @@ function randomSort (array) {
   return array;
 }
 
-randomSort(gameTiles);
 console.log(gameTiles);
 
 
 function createBoard() {
   const board = document.getElementById('gameboard');
+  randomSort(gameTiles);
+  clearBoard();
 
   for (let i = 0; i < 10; i++) {
       var row = document.createElement('div');
@@ -42,11 +43,19 @@ function createBoard() {
           let button = document.createElement('button');
           button.className = 'column';
           button.value = value; // Set the value attribute
+          button.disabled = true;
           button.addEventListener('click', handleTileClick);
           row.appendChild(button);
       }
 
       board.appendChild(row);
+  }
+}
+
+function clearBoard() {
+  const board = document.getElementById('gameboard');
+  while (board.firstChild) {
+    board.removeChild(board.firstChild);
   }
 }
 

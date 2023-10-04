@@ -49,8 +49,6 @@ function doTilesMatch(tile1, tile2) {
     correct.play();
 
     pointController();
-    turnController();
-    
   } else {
     const buttons = document.querySelectorAll(".column");
     //Delay for user friendliness
@@ -81,37 +79,46 @@ function doTilesMatch(tile1, tile2) {
         turnController();
       }, 1000);
 
-      
   }
 };
 
-    //Changes whose turn it is
-    function turnController() {
+//Changes whose turn it is
+function turnController() {
 
-        let turn =  document.getElementById("turn");
-        turn.innerHTML = "";
-        isplayerOneTurn = !isplayerOneTurn;
-        
-        if (isplayerOneTurn === true) turn.innerHTML = "It's Player One's turn!"
-        else turn.innerHTML = "It's Player Two's turn!";
+    let turn =  document.getElementById("turn");
+    turn.innerHTML = "";
+    isplayerOneTurn = !isplayerOneTurn;
+    
+    if (isplayerOneTurn === true) turn.innerHTML = "It's Player One's turn!"
+    else turn.innerHTML = "It's Player Two's turn!";
+}
+
+//Increases play points by one
+function pointController() {
+    
+    if (isplayerOneTurn === true) {
+        playerOnePoints++;
+        p1.innerHTML = "";
+        p1.innerHTML = `Player One - ${playerOnePoints}`;
+    } else {
+        playerTwoPoints++;
+        p2.innerHTML = "";
+        p2.innerHTML = `Player Two - ${playerTwoPoints}`
     }
+}
 
-    //Increases play points by one
-    function pointController() {
-        
-        if (isplayerOneTurn === true) {
-            playerOnePoints++;
-            p1.innerHTML = "";
-            p1.innerHTML = `Player One - ${playerOnePoints}`;
-        } else {
-            playerTwoPoints++;
-            p2.innerHTML = "";
-            p2.innerHTML = `Player Two - ${playerTwoPoints}`
-        }
-    }
+//Reset point scores
+function resetPoints() {
+  playerOnePoints = 0;
+  playerTwoPoints = 0;
+  p1.innerHTML = "";
+  p1.innerHTML = `Player One - ${playerOnePoints}`;
+  p2.innerHTML = "";
+  p2.innerHTML = `Player Two - ${playerTwoPoints}`;
+}
 
 
-// Script for timeren
+// Create and update timer
 const timerh3 = document.getElementById('timer');
 let totalSeconds = 0;
 let isPaused = false;
@@ -125,14 +132,13 @@ function printTimer() {
   
     const preMinutes = minutesValue.toString().padStart(2, '0');
     const preSeconds = secondsValue.toString().padStart(2, '0');
-    // padStart bruges for at formatterer tallene til at være '01' i stedet for '1'
+    // padStart to formate the numbers as '01' instead of '1'
   
     timerh3.textContent = preMinutes + ':' + preSeconds; 
     document.title = preMinutes + ':' + preSeconds + " - Arkaden Vendespil";
   }
 }
-let timer = setInterval(printTimer, 1000);
-function startTimer() {timer};
+function startTimer() {setInterval(printTimer, 1000);};
 function resetTimer() {totalSeconds = 0};
 function pauseTimer() {
   if(!isPaused){
@@ -141,4 +147,46 @@ function pauseTimer() {
     isPaused = false;
   }
 };
-startTimer();
+
+
+// Start game
+function startGame() {
+  const buttons = document.querySelectorAll('.column');
+  buttons.forEach((button) => {
+    button.removeAttribute('disabled');
+  });
+  startTimer();
+  background.play();
+}
+
+
+/*
+  Gør brættet interaktivt
+    forEach .column button.disabled = false;
+  startTimer()
+  background.play()
+*/
+
+// Restart game
+
+function restartGame(){
+  createBoard();
+  resetTimer();
+  resetPoints();
+  flippedTiles = []; // Clear array in case user flipped 1 tile before resetting
+}
+/*
+  Slet nuværrende bræt
+  createBoard()
+  resetTimer()
+  Clear flipped array liste
+  playerOnePoints = 0;
+  playerTwoPoints = 0;
+*/
+
+/* Victory screen
+
+  pauseTimer()
+  addNewHighScore()
+
+*/
