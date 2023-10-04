@@ -49,10 +49,11 @@ button:hover {
     /* outline: 2px solid lime; */
 }
 .flipped {
+    position: relative;
     width: 8%;
     height: 55px;
     margin: 2px;
-    top: 0px;
+    top: -22px;
     cursor: default;
     background-color: var(--highlight-color);
     color: var(--secondary-bg-color);

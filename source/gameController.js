@@ -3,12 +3,12 @@ let correct = new Audio("/source/correct.mp3");
 let incorrect = new Audio("/source/incorrect.mp3");
 let confetti = new Audio("/source/confetti.mp3");
 let background = new Audio("/source/background.mp3");
+let turn =  document.getElementById("turn");
 correct.volume = 0.5;
 incorrect.volume = 0.5;
 background.volume = 0.3;
 background.loop = true;
 
-background.play();
 
 let flippedTiles = [];
 let isplayerOneTurn = true;
@@ -85,7 +85,7 @@ function doTilesMatch(tile1, tile2) {
 //Changes whose turn it is
 function turnController() {
 
-    let turn =  document.getElementById("turn");
+    
     turn.innerHTML = "";
     isplayerOneTurn = !isplayerOneTurn;
     
@@ -160,6 +160,7 @@ function enableBoard() {
 const startBtn = document.getElementById('start');
 const restartBtn = document.getElementById('restart');
 function startGame() {
+  turn.innerHTML = "It's Player One's Turn!"
   enableBoard();
   startTimer();
   background.play();
