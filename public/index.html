@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>Arkaden</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="https://use.typekit.net/ztb6jzp.css">
     <script src="https://kit.fontawesome.com/684b5ecd70.js" crossorigin="anonymous"></script>
 </head>
     <header>
@@ -21,16 +22,9 @@
     </div>
     <div id="contentWrapper">
         <aside>
-            <div id="gameControls"></div>
-            <div id="highScores"></div>
-        </aside>
-        <main>
-            
-            <div id="gameboard"></div>
-        </main>
-
-        <aside>
-            <div id="highScoreListDiv"></div>
+            <div id="gameControls">
+                <button id="start">Start Game</button>
+            </div>
             <div id="rulesListDiv">
                 <ul>
                     <li>Each turn a player flips over 2 cards one at the time</li>
@@ -39,6 +33,15 @@
                     <li>The player with the most pairs at the end of the game wins</li>
                 </ul>
             </div>
+        </aside>
+        <main>
+            
+            <div id="gameboard"></div>
+        </main>
+
+        <aside>
+            <div id="highScoreListDiv"></div>
+           
         </aside>
     </div>
 
