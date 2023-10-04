@@ -60,6 +60,11 @@ header {
     justify-content: end;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+}
+
 #contentWrapper {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -67,6 +72,7 @@ header {
 #gameboard {
     text-align: center;
     display: flex;
+    max-width: min-content;
 }
 #players {
     display: flex;
