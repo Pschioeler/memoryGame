@@ -26,33 +26,20 @@ body {
     justify-content: center;
 }
 button {
-    width: 8%;
+    width: 55px;
     height: 55px;
     margin: 2px;
     color: var(--highlight-color);
 }
-button:focus {
-    width: 8%;
-    height: 55px;
-    margin: 2px;
-}
-button:focus:not(:focus-visible) {
-    outline: none;
-}
+
+
 button:hover {
-    width: 8%;
-    height: 55px;
-    margin: 2px;
     cursor: pointer;
     border-radius: 5px;
-    
     /* outline: 2px solid lime; */
 }
 .flipped {
     position: relative;
-    width: 8%;
-    height: 55px;
-    margin: 2px;
     top: -22px;
     cursor: default;
     background-color: var(--highlight-color);
