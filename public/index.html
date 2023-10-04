@@ -6,32 +6,41 @@
     <link rel="stylesheet" href="styles.css">
     <title>Arkaden</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <script src="https://kit.fontawesome.com/684b5ecd70.js" crossorigin="anonymous"></script>
 </head>
-<embed>
     <header>
-    
     </header>
-
-    <main>
+    <div id="info">
         <h1>The Arcade</h1>
-        <h2 id="turn">It's Player One's turn!</h2>
-        <h3 id="timer">00:00</h3>
-        <p id="p1">Player One - 0</p>
-        <p id="p2">Player Two - 0</p>
-        <div id="gameboard"></div>
-    </main>
+            <h2 id="turn">It's Player One's turn!</h2>
+            <h3 id="timer">00:00</h3>
+            <div id="players">
+                <p id="p1">Player One - 0</p>
+                <p id="p2">Player Two - 0</p>
+            </div>
+    </div>
+    <div id="contentWrapper">
+        <aside>
+            <div id="gameControls"></div>
+            <div id="highScores"></div>
+        </aside>
+        <main>
+            
+            <div id="gameboard"></div>
+        </main>
 
-    <aside>
-        <div id="highScoreListDiv"></div>
-        <div id="rulesListDiv">
-            <ul>
-                <li>Each turn a player flips over 2 cards one at the time</li>
-                <li>If the 2 cards match, the player gets a point, and gets to play again</li>
-                <li>If the cards dont match they are faced down, and it becomes the next platers turn</li>
-                <li>The player with the most pairs at the end of the game wins</li>
-            </ul>
-        </div>
-    </aside>
+        <aside>
+            <div id="highScoreListDiv"></div>
+            <div id="rulesListDiv">
+                <ul>
+                    <li>Each turn a player flips over 2 cards one at the time</li>
+                    <li>If the 2 cards match, the player gets a point, and gets to play again</li>
+                    <li>If the cards dont match they are faced down, and it becomes the next platers turn</li>
+                    <li>The player with the most pairs at the end of the game wins</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
 
     <footer>
 
