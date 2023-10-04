@@ -27,7 +27,7 @@ function sortHighScores (array) {
 
 // to use: displayHighScores(HIGHSCORES);
 function displayHighScores (key) {
-    var listOfHighscores = document.getElementById("HighscoreListDiv");
+    var listOfHighscores = document.getElementById("highScoreListDiv");
     stringArray = localStorage.getItem(key);
     let arrayOfStrings = JSON.parse(stringArray);
 
