@@ -55,7 +55,7 @@ function clearHighScores () {
     displayHighScores();
 }
   
-clearHighScores();
-  // Example usage: Display high scores in a div with the ID "highScoresContainer"
-  // addNewHighScore("philip", 1500, 5);
+//clearHighScores();
+// Example usage: Display high scores in a div with the ID "highScoresContainer"
+// addNewHighScore("philip", 1500, 5);
   displayHighScores();
