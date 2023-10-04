@@ -92,12 +92,9 @@ function turnController() {
     
     if (isplayerOneTurn === true) {
       root.style.setProperty('--hover', '#ec1800');
-      { 
-      turn.innerHTML = "It's Player One's turn!"
-      turnAmount++
+      turn.innerHTML = "It's Player One's turn!";
+      turnAmount++;
     }
-    }
-
     else {
       root.style.setProperty('--hover', '#0629f1');
       turn.innerHTML = "It's Player Two's turn!";
