@@ -3,7 +3,9 @@ let correct = new Audio("/source/correct.mp3");
 let incorrect = new Audio("/source/incorrect.mp3");
 let confetti = new Audio("/source/confetti.mp3");
 let background = new Audio("/source/background.mp3");
-background.volume = 0.4;
+correct.volume = 0.5;
+incorrect.volume = 0.5;
+background.volume = 0.3;
 background.loop = true;
 
 background.play();
@@ -50,9 +52,22 @@ function doTilesMatch(tile1, tile2) {
     turnController();
     
   } else {
+    const buttons = document.querySelectorAll(".column");
     //Delay for user friendliness
     incorrect.play();
+
+    buttons.forEach(button => {
+      button.classList.add("cursorHidden");
+    });
+
+    document.body.classList.add("cursorHidden");
+    
     setTimeout(() => {   
+
+      buttons.forEach(button => {
+        button.classList.remove("cursorHidden");
+      });
+      document.body.classList.remove("cursorHidden");
         tile1.disabled = false;
         tile2.disabled = false;
         tile1.innerHTML = "";

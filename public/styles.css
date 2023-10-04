@@ -46,3 +46,6 @@ button:hover {
 p {
     color: var(--text-color);
 }
+.cursorHidden {
+    pointer-events: none;
+}
