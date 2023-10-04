@@ -148,15 +148,23 @@ function pauseTimer() {
   }
 };
 
-
-// Start game
-function startGame() {
+function enableBoard() {
   const buttons = document.querySelectorAll('.column');
   buttons.forEach((button) => {
     button.removeAttribute('disabled');
   });
+}
+
+
+// Start game
+const startBtn = document.getElementById('start');
+const restartBtn = document.getElementById('restart');
+function startGame() {
+  enableBoard();
   startTimer();
   background.play();
+  startBtn.style.display = 'none';
+  restartBtn.style.display = 'block';
 }
 
 
@@ -171,7 +179,10 @@ function startGame() {
 
 function restartGame(){
   createBoard();
+  enableBoard();
   resetTimer();
+  timerh3.textContent = '00:00';
+  document.title = 'Arkaden';
   resetPoints();
   flippedTiles = []; // Clear array in case user flipped 1 tile before resetting
 }
