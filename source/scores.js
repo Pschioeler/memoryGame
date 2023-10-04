@@ -1,11 +1,15 @@
 const HIGHSCORES = "highScoreList";
 const HIGHSCORESARRAY = [];
+const HIGHSCOREOBJECT = {HSName, HSPoints, HSTurns};
 var stringArray;
 
 function addNewHighScore (player, points, turns) {
-    // push new highscore elements to array
-    HIGHSCORESARRAY.push(player, points, turns)
-
+    // push new highscore object to array
+    newHighScore = Object.create(HIGHSCOREOBJECT);
+    newHighScore.HSName = player;
+    newHighScore.HSPoints = points;
+    newHighScore.HSTurns = turns;
+    HIGHSCORESARRAY.push(newHighScore);
     // sort highscore array
 
 
@@ -29,7 +33,8 @@ function sortHighScores (array) {
 function displayHighScores (key) {
     var listOfHighscores = document.getElementById("highScoreListDiv");
     stringArray = localStorage.getItem(key);
-    let arrayOfStrings = JSON.parse(stringArray);
+    let arrayOfStrings = [];
+    arrayOfStrings = JSON.parse(stringArray);
 
     //clear div elements
     listOfHighscores.innerHTML = "";
@@ -37,6 +42,18 @@ function displayHighScores (key) {
     if (stringArray === null) {
         listOfHighscores.innerHTML = "";
     } else {
+        arrayOfStrings.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.innerHTML = `<strong>Highscores ${index + 1} <strong><br>
+            <ul>
+                <li>Name 1: ${item.HSName}</li>
+                <li>Points 2: ${item.HSPoints}</li>
+                <li>Turns 3: ${item.HSTurns}</li>
+            </ul>            
+            `
+            container.appendChild(itemElement);
+        });
+        /*
         //display highscore list
         for (let i = 0; i < arrayOfStrings.length; i += 3) {
             const group = document.createElement("div");
@@ -48,7 +65,7 @@ function displayHighScores (key) {
                 group.appendChild(HSStatsDiv);                
             }
             listOfHighscores.appendChild(group)
-        }
+        }*/
     }
 }
 
@@ -57,7 +74,9 @@ function clearHighScores () {
     localStorage.clear();
     displayHighScores(HIGHSCORES);
 }
+clearHighScores();
 
-addNewHighScore("philip", 1, 5);
-addNewHighScore("Maja", 9, 10);
+addNewHighScore(tobias, 15, 10);    
+
+displayHighScores(HIGHSCORES);
 
