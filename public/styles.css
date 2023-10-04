@@ -26,21 +26,21 @@ body {
     justify-content: center;
 }
 button {
-    width: 55px;
-    height: 55px;
+    width: 65px;
+    height: 65px;
     margin: 2px;
     color: var(--highlight-color);
 }
 
 
 button:hover {
+    width: 65px;
+    height: 65px;
+    margin: 2px;
     cursor: pointer;
     border-radius: 5px;
-    /* outline: 2px solid lime; */
 }
 .flipped {
-    position: relative;
-    top: -22px;
     cursor: default;
     background-color: var(--highlight-color);
     color: var(--secondary-bg-color);
@@ -66,6 +66,7 @@ header {
 }
 #gameboard {
     text-align: center;
+    display: flex;
 }
 #players {
     display: flex;
@@ -74,6 +75,4 @@ header {
 #info {
     text-align: center;
 }
-.row {
-    max-height: 61.5px;
-}
+
