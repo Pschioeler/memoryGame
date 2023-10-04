@@ -176,7 +176,7 @@ function enableBoard() {
 const startBtn = document.getElementById('start');
 const restartBtn = document.getElementById('restart');
 function startGame() {
-  turn.innerHTML = "It's Player One's Turn!"
+  turn.innerHTML = "It's Player One's Turn!";
   enableBoard();
   startTimer();
   background.play();
@@ -186,6 +186,8 @@ function startGame() {
 
 // Restart game
 function restartGame(){
+  isplayerOneTurn = false;
+  turnController();
   createBoard();
   enableBoard();
   resetTimer();
