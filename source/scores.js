@@ -65,8 +65,8 @@ function clearHighScores () {
  //clearHighScores();
 displayHighScores();
 
-addNewHighScore("player 1", 2000, 25);
-addNewHighScore("player 1", 1500, 25);
-addNewHighScore("player 2", 1500, 25);
+addNewHighScore("player 1", 100, 25);
+addNewHighScore("player 1", 90, 25);
+addNewHighScore("player 2", 140, 25);
 
   

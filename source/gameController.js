@@ -204,11 +204,13 @@ function gameEnded() {
   if (playerOnePoints > playerTwoPoints) {
     turn.textContent = "Player One wins!"
     addNewHighScore("Player One", playerOnePoints, turnAmount);
+    confetti.play();
   } else if (playerOnePoints == playerTwoPoints) {
     turn.textContent = "It's a tie!"
   } else {
     turn.textContent = "Player Two wins!"
     addNewHighScore("Player Two", playerTwoPoints, turnAmount);
+    confetti.play();
   }
   pauseTimer();
   restartBtn.textContent = "New Game"
