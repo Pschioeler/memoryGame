@@ -20,6 +20,17 @@ let playerTwoPoints = 0;
 const p1 = document.getElementById("p1");
 const p2 = document.getElementById("p2"); 
 
+// Function to check if all tiles are flipped - game over
+function allColumnsFlipped() {
+  const columns = document.querySelectorAll('.column');
+  for (const column of columns) {
+    if (!column.classList.contains('flipped')) {
+      return false;
+    }
+  }
+  return true;
+}
+
 // Function to handle tile clicks
 function handleTileClick(e) {
 
@@ -51,6 +62,7 @@ function doTilesMatch(tile1, tile2) {
     correct.play();
 
     pointController();
+    if(allColumnsFlipped()) gameEnded();
   } else {
     
     //Delay for user friendliness
