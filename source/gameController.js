@@ -10,7 +10,6 @@ incorrect.volume = 0.5;
 background.volume = 0.3;
 background.loop = true;
 
-
 let flippedTiles = [];
 let turnAmount = 1;
 let isplayerOneTurn = true;
@@ -57,17 +56,14 @@ function doTilesMatch(tile1, tile2) {
     //Disable them so they can't be chosen again
     tile1.disabled = true;
     tile2.disabled = true;
-    console.log("Its a match");
     flippedTiles = [];
     correct.play();
-
     pointController();
     if(allColumnsFlipped()) gameEnded();
   } else {
     
     //Delay for user friendliness
     incorrect.play();
-
     buttons.forEach(button => {
       button.classList.add("cursorHidden");
     });
@@ -75,7 +71,6 @@ function doTilesMatch(tile1, tile2) {
     document.body.classList.add("cursorHidden");
     
     setTimeout(() => {   
-
       buttons.forEach(button => {
         button.classList.remove("cursorHidden");
       });
@@ -88,7 +83,6 @@ function doTilesMatch(tile1, tile2) {
         flippedTiles.forEach((tile) => {
             tile.classList.remove('flipped');
         });
-        console.log("womp womp");
         flippedTiles = [];
         turnController();
       }, 1000);
@@ -115,16 +109,15 @@ function turnController() {
 
 //Increases play points by one
 function pointController() {
-    
-    if (isplayerOneTurn === true) {
-        playerOnePoints++;
-        p1.innerHTML = "";
-        p1.innerHTML = `Player One - ${playerOnePoints}`;
-    } else {
-        playerTwoPoints++;
-        p2.innerHTML = "";
-        p2.innerHTML = `Player Two - ${playerTwoPoints}`
-    }
+  if (isplayerOneTurn === true) {
+    playerOnePoints++;
+    p1.innerHTML = "";
+    p1.innerHTML = `Player One - ${playerOnePoints}`;
+  } else {
+    playerTwoPoints++;
+    p2.innerHTML = "";
+    p2.innerHTML = `Player Two - ${playerTwoPoints}`
+  }
 }
 
 //Reset point scores
@@ -136,7 +129,6 @@ function resetPoints() {
   p2.innerHTML = "";
   p2.innerHTML = `Player Two - ${playerTwoPoints}`;
 }
-
 
 // Create and update timer
 const timerh3 = document.getElementById('timer');
@@ -183,7 +175,6 @@ function enableBoard() {
   });
 }
 
-
 // Start game
 const startBtn = document.getElementById('start');
 const restartBtn = document.getElementById('restart');
@@ -215,8 +206,6 @@ function gameEnded() {
     addNewHighScore("Player One", playerOnePoints, turnAmount);
   } else if (playerOnePoints == playerTwoPoints) {
     turn.textContent = "It's a tie!"
-    addNewHighScore("Player One", playerOnePoints, turnAmount);
-    addNewHighScore("Player Two", playerTwoPoints, turnAmount);
   } else {
     turn.textContent = "Player Two wins!"
     addNewHighScore("Player Two", playerTwoPoints, turnAmount);
@@ -224,13 +213,3 @@ function gameEnded() {
   pauseTimer();
   restartBtn.textContent = "New Game"
 }
-
-/*
-  Print victor
-  pauseTimer()
-  if highscore > highscoreList
-    addNewHighScore()
-  Change restart button to new game
-*/
-
-
