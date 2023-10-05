@@ -14,7 +14,7 @@ function addNewHighScore(player, points, turns) {
     };
     // Push the new highscore object into the array
     highScores.push(newHighScore);
-    // Save the updated high scores array as a string in local storage
+    // Save the updated highscores array as a string in local storage
     localStorage.setItem(HIGHSCORES, JSON.stringify(highScores));  
     displayHighScores();
 }
