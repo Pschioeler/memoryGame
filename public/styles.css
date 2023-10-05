@@ -157,7 +157,7 @@ h3 {
 
 #highScoreDiv {
  border-radius: 5px;
- height: 690px;
+ height: 570px;
  outline: 2px solid var(--secondary-bg-color);
  box-shadow: 0 0 .2rem var(--secondary-bg-color),
  0 0 .2rem var(--secondary-bg-color),
@@ -183,4 +183,18 @@ h3 {
 }
 #p2{
     text-shadow: var(--tertiary-color) 1px 0 10px;
+}
+
+#resetHighScores {
+    margin-top: 48px;
+}
+
+#start {
+    font-size: 1.4rem;
+}
+#start:hover {
+    box-shadow: 0 0 .2rem var(--secondary-bg-color),
+ 0 0 .2rem var(--secondary-bg-color),
+ 0 0 2rem var(--tertiary-color),
+ inset 0 0 1.3rem var(--tertiary-color);
 }
