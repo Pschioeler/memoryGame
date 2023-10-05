@@ -54,7 +54,7 @@ function handleTileClick(e) {
 
   }
 
-  //Function to see if the selected tiles match
+//Function to see if the selected tiles match
 function doTilesMatch(tile1, tile2) {
   if (tile1.value == tile2.value) {
     //Disable them so they can't be chosen again
@@ -65,9 +65,7 @@ function doTilesMatch(tile1, tile2) {
     pointController();
     if(allColumnsFlipped()) gameEnded();
   } else {
-    
     incorrect.play();
-
     //Disabling clicking, to avoid the user spamming clicks
     buttons.forEach(button => {
       button.classList.add("cursorHidden");
