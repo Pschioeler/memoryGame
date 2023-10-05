@@ -16,6 +16,7 @@ let isplayerOneTurn = true;
 let playerOnePoints = 0;
 let playerTwoPoints = 0;
 
+
 const p1 = document.getElementById("p1");
 const p2 = document.getElementById("p2"); 
 
@@ -189,6 +190,7 @@ function startGame() {
 
 // Restart game
 function restartGame(){
+  // jsConfetti.clearCanvas();
   isplayerOneTurn = false;
   turnController();
   createBoard();
@@ -212,6 +214,7 @@ function gameEnded() {
     addNewHighScore("Player Two", playerTwoPoints, turnAmount);
     confetti.play();
   }
+ 
   pauseTimer();
   restartBtn.textContent = "New Game"
 }
