@@ -1,25 +1,27 @@
 //SFX and background music
 let correct = new Audio("/source/correct.mp3");
 let incorrect = new Audio("/source/incorrect.mp3");
-let confetti = new Audio("/source/confetti.mp3");
 let background = new Audio("/source/background.mp3");
-let turn =  document.getElementById("turn");
-const buttons = document.querySelectorAll(".column");
+
 correct.volume = 0.5;
 incorrect.volume = 0.5;
 background.volume = 0.3;
 background.loop = true;
 
+//Fetching HTML elements
+const turn =  document.getElementById("turn");
+const buttons = document.querySelectorAll(".column");
+const confettiAnimation = document.getElementById("confetti");
+const p1 = document.getElementById("p1");
+const p2 = document.getElementById("p2"); 
+
+//Initializing starer variables
 let flippedTiles = [];
 let turnAmount = 1;
 let isplayerOneTurn = true;
 let playerOnePoints = 0;
 let playerTwoPoints = 0;
-let confettiAnimation = document.getElementById("confetti");
 
-
-const p1 = document.getElementById("p1");
-const p2 = document.getElementById("p2"); 
 
 // Function to check if all tiles are flipped - game over
 function allColumnsFlipped() {
@@ -37,7 +39,7 @@ function handleTileClick(e) {
 
     let tile = e.target;
     tile.innerHTML = tile.value;
-    //Temporarily disabled indicating it can't be chosen twice
+    //Temporarily disabling tile, indicating it can't be chosen twice
     tile.disabled = true;
     tile.classList.add("flipped");
     
@@ -64,14 +66,15 @@ function doTilesMatch(tile1, tile2) {
     if(allColumnsFlipped()) gameEnded();
   } else {
     
-    //Delay for user friendliness
     incorrect.play();
+
+    //Disabling clicking, to avoid the user spamming clicks
     buttons.forEach(button => {
       button.classList.add("cursorHidden");
     });
-
     document.body.classList.add("cursorHidden");
     
+    //Delay for user friendliness
     setTimeout(() => {   
       buttons.forEach(button => {
         button.classList.remove("cursorHidden");
@@ -88,12 +91,12 @@ function doTilesMatch(tile1, tile2) {
         flippedTiles = [];
         turnController();
       }, 1000);
-
   }
 };
 
 //Changes whose turn it is
 function turnController() {
+    //Fetches root to be able to change its property. Used for different colors of hover, depending on whose turn it is
     var root = document.querySelector(':root');
     turn.innerHTML = "";
     isplayerOneTurn = !isplayerOneTurn;
@@ -109,7 +112,7 @@ function turnController() {
     }
 }
 
-//Increases play points by one
+//Increases player points by one
 function pointController() {
   if (isplayerOneTurn === true) {
     playerOnePoints++;
@@ -152,8 +155,11 @@ function printTimer() {
     document.title = preMinutes + ':' + preSeconds + " - Arkaden Vendespil";
   }
 }
+
 let timer;
+
 function startTimer() {timer = setInterval(printTimer, 1000); isPaused = false};
+
 function resetTimer() {
   isPaused = false;
   totalSeconds = 0;
@@ -162,6 +168,7 @@ function resetTimer() {
   timerh3.textContent = '00:00';
   document.title = 'Arkaden';
 };
+
 function pauseTimer() {
   if(!isPaused){
     isPaused = true
@@ -175,13 +182,13 @@ function enableBoard() {
   buttons.forEach((button) => {
     button.removeAttribute('disabled');
   });
-}
+};
 
 // Start game
-confettiAnimation.style.display = "none";
 const startBtn = document.getElementById('start');
 const restartBtn = document.getElementById('restart');
 function startGame() {
+  confettiAnimation.style.display = "none";
   turn.innerHTML = "It's Player One's Turn!";
   enableBoard();
   startTimer();
