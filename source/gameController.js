@@ -15,6 +15,7 @@ let turnAmount = 1;
 let isplayerOneTurn = true;
 let playerOnePoints = 0;
 let playerTwoPoints = 0;
+let confettiAnimation = document.getElementById("confetti");
 
 
 const p1 = document.getElementById("p1");
@@ -177,6 +178,7 @@ function enableBoard() {
 }
 
 // Start game
+confettiAnimation.style.display = "none";
 const startBtn = document.getElementById('start');
 const restartBtn = document.getElementById('restart');
 function startGame() {
@@ -190,7 +192,7 @@ function startGame() {
 
 // Restart game
 function restartGame(){
-  // jsConfetti.clearCanvas();
+  confettiAnimation.style.display = "none";
   isplayerOneTurn = false;
   turnController();
   createBoard();
@@ -206,15 +208,15 @@ function gameEnded() {
   if (playerOnePoints > playerTwoPoints) {
     turn.textContent = "Player One wins!"
     addNewHighScore("Player One", playerOnePoints, turnAmount);
-    confetti.play();
+    
   } else if (playerOnePoints == playerTwoPoints) {
     turn.textContent = "It's a tie!"
   } else {
     turn.textContent = "Player Two wins!"
     addNewHighScore("Player Two", playerTwoPoints, turnAmount);
-    confetti.play();
+    
   }
- 
+  confettiAnimation.style.display = "block";
   pauseTimer();
   restartBtn.textContent = "New Game"
 }

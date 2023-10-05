@@ -116,6 +116,7 @@ main {
   }
   #start, #restart {
     width: 100%;
+    z-index: 100;
   }
   aside {
     padding: 0 2rem 0 2rem;
@@ -184,3 +185,14 @@ h3 {
 #p2{
     text-shadow: var(--tertiary-color) 1px 0 10px;
 }
+#confetti {
+    display: none;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
