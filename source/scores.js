@@ -37,7 +37,7 @@ function displayHighScores() {
         // Create a div for each high score and append it to the element
         highScores.forEach((score, index) => {
           const scoreDiv = document.createElement('div');
-          scoreDiv.className = 'high-score';
+          //scoreDiv.className = 'high-score';
           scoreDiv.innerHTML = `
             <strong>${index + 1}. ${score.player} - ${score.points} points | ${score.turns} turns </strong>`;
           HighScoreDiv.appendChild(scoreDiv);
