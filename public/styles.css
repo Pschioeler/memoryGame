@@ -201,10 +201,10 @@ h3 {
     margin-top: 48px;
 }
 
-#start {
+#start, #restart {
     font-size: 1.4rem;
 }
-#start:hover {
+#start:hover, #restart:hover {
     box-shadow: 0 0 .2rem var(--secondary-bg-color),
  0 0 .2rem var(--secondary-bg-color),
  0 0 2rem var(--tertiary-color),
