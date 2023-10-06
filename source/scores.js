@@ -32,7 +32,7 @@ function displayHighScores() {
           highScores.pop();
           localStorage.setItem(HIGHSCORES, JSON.stringify(highScores)); 
         }
-        // Clear any previous content in the element
+        // Clear in the element
         HighScoreDiv.innerHTML = "";
         // Create a div for each high score and append it to the element
         highScores.forEach((score, index) => {
